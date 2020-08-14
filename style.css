@@ -1,0 +1,131 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* body */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* navbar */
+
+nav {
+    display: flex;
+    background-color: rgb(180, 78, 232);
+    justify-content: space-around;
+    /* padding: 20px 0px; */
+    color: rgb(234, 192, 255);
+    height: 50px;
+    align-items: center;
+}
+
+nav .logo {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 3px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a {
+    color: rgb(234, 192, 255);
+    text-decoration: none;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover {
+    color: rgb(250, 240, 255);
+}
+
+nav .menu-toogle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+nav .menu-toogle input {
+    position: absolute;
+    height: 28px;
+    width: 40px;
+    opacity: 0;
+    left: -6px;
+    top: -3px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+nav .menu-toogle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(234, 192, 255);
+    border-radius: 3px;
+    transition: all .5s;
+}
+
+nav .menu-toogle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+nav .menu-toogle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+nav .menu-toogle input:checked~span:nth-child(2) {
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+nav .menu-toogle input:checked~span:nth-child(4) {
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+
+nav .menu-toogle input:checked~span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* ukuran tablet */
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        width: 50%;
+    }
+}
+
+/* ukuran tablet */
+
+@media screen and (max-width: 576px) {
+    nav .menu-toogle {
+        display: flex;
+    }
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        flex-direction: column;
+        background-color: rgb(180, 78, 232);
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: -1;
+        width: 70%;
+        transform: translateX(100%);
+        transition: all .9s;
+        opacity: 0;
+    }
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
